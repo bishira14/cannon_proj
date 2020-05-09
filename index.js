@@ -13,6 +13,7 @@ let movement = [5];
 let way = 1;
 let shotter = shooterPosition;
 let duration = 900;
+let durationOpposition = 900;
 let shotMove = function (num){
   for(let i = 0; i < 14; i++){
     duration -= 50;
@@ -96,7 +97,8 @@ function gameMove(){
 opponentsCaught();
 //if opponents reached shooter
 opponentsReached();
-
+//opponents attacking
+oppositionAttack();
 }
 
 function opponentsCaught(){
@@ -116,6 +118,20 @@ function opponentsReached(){
       }
     }
   }
+}
+
+function oppositionAttack(){
+  let random = Math.floor(Math.random() * theOpponents.length);
+  let theOpponentsIndexValue = theOpponents[random];
+  for(let i = 0; i < 15; i++){
+  durationOpposition -=50;
+  setTimeout(function(){
+    tiles[theOpponentsIndexValue].classList.remove('oppositionShot');
+    theOpponentsIndexValue +=15;
+    tiles[theOpponentsIndexValue].classList.add('oppositionShot');
+  },durationOpposition);
+  }
+  durationOpposition = 900;
 }
 replay.addEventListener('click', function(){
    return location.reload();
