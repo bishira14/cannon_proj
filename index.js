@@ -126,9 +126,10 @@ function oppositionAttack(){
   for(let i = 0; i < 15; i++){
   durationOpposition -=50;
   setTimeout(function(){
-    tiles[theOpponentsIndexValue].classList.remove('oppositionShot');
-    theOpponentsIndexValue +=15;
-    tiles[theOpponentsIndexValue].classList.add('oppositionShot');
+      tiles[theOpponentsIndexValue].classList.remove('oppositionShot');
+      theOpponentsIndexValue +=15;
+      tiles[theOpponentsIndexValue].classList.add('oppositionShot');
+      console.log(theOpponentsIndexValue);
   },durationOpposition);
   }
   durationOpposition = 900;
