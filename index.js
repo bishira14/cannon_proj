@@ -13,7 +13,7 @@ let movement = [5];
 let way = 1;
 let shotter = shooterPosition;
 let duration = 900;
-function shotMove(num){
+let shotMove = function (num){
   for(let i = 0; i < 14; i++){
     duration -= 50;
     setTimeout(function(){
@@ -108,9 +108,11 @@ function opponentsReached(){
   for(let i = 0; i < theOpponents.length; i++){
     if((tiles[theOpponents[i]].classList.contains('shooter')) && (tiles[theOpponents[i]].classList.contains('opponents'))){
        clearInterval(game);
+       shotMove = null;
     }else{
       if((theOpponents[i] > 255) && (tiles[theOpponents[i]].classList.contains('opponents'))){
         clearInterval(game);
+        shotMove = null;
       }
     }
   }

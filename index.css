@@ -46,7 +46,10 @@ body{
  border:solid 1px black;
 }
  div .shooter{
-   background:url('img/shooter.png');
+   height:25px;
+   width:25px;
+   background:green;
+   background:url('img/shooter.jpg');
 }
  div .opponents{
   height:20px;
