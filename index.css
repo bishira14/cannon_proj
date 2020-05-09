@@ -9,28 +9,54 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: arial;
+  background-color: rgb(0, 0, 0);
+}
+.stats{
+  width:35em;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:30px 0px;
+}
+.stats h2{
+  background-color: rgb(64, 64, 64);
+  padding:5px;
+  border-radius: 7px;
+  color: rgb(255,255,255);
+}
+.replay{
+  width:40px;
+  cursor:pointer;
+  text-align: center;
 }
 .container{
   height:35em;
   width:35em;
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   border:solid 1px black;
   flex-wrap: wrap;
+  background-color: rgb(0, 0, 0);
 }
 .container div{
  height:30px;
  width:36px;
  border:solid 1px black;
 }
-.shooter{
-   background-color:blue;
+ div.shooter{
+   border-radius: 7px;
+   background:green;
 }
-.opponents{
-  background-color: green;
+ div .opponents{
+  height:20px;
+  background-color: white;
+  border-radius: 7px;
 }
-.shot{
+ div .shot{
+   height:25px;
+   width: 25px;
   background-color:red;
-  border-radius: 100px;
+  border-radius: 70px;
 }

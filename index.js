@@ -1,5 +1,8 @@
 const tiles = document.querySelectorAll('.container div');
 let shooterPosition =  202;
+let score = 0;
+let scoreElement = document.querySelector('h2 span')
+let game = setInterval(gameMove,500);
 let theOpponents = [0,1,2,3,4,5,6,7,8,9,
                    15,16,17,18,19,20,21,22,23,24,
                    30,31,32,33,34,35,36,37,38,39];
@@ -24,6 +27,10 @@ function shotMove(num){
       if(tiles[num].classList.contains('opponents')){
         caught[0] = theOpponents.indexOf(num);
         allCaught.push(caught[0]);
+        score++;
+        scoreElement.textContent = score;
+      }else{
+        console.log('nothing')
       }
     },duration);
   }
@@ -53,7 +60,7 @@ function keys(e){
    tiles[shooterPosition].classList.add('shooter');
 }
 
-function game(){
+function gameMove(){
   theOpponents.forEach(element => {
     tiles[element].classList.remove('opponents');
   })
@@ -70,9 +77,10 @@ function game(){
       way = 1;
     }
     // caught the opponents
-    for(let i = 0; i < allCaught.length; i++){
-      tiles[theOpponents[allCaught[i]]].classList.remove('opponents');
-    }
+    opponentsCaught();
+    //if opponents reached shooter
+    opponentsReached();
+
     return movement[0] += 5;
   }
 
@@ -84,11 +92,21 @@ function game(){
   });
   movement[0]--;
 //caught the opponents
-for(let i = 0; i < allCaught.length; i++){
-  tiles[theOpponents[allCaught[i]]].classList.remove('opponents')
+opponentsCaught();
+//if opponents reached shooter
+opponentsReached();
+
 }
+
+function opponentsCaught(){
+  for(let i = 0; i < allCaught.length; i++){
+    tiles[theOpponents[allCaught[i]]].classList.remove('opponents');
+  }
 }
-
-
-
-setInterval(game,500);
+function opponentsReached(){
+  for(let i = 0; i < theOpponents.length; i++){
+    if((tiles[theOpponents[i]].classList.contains('shooter')) && (tiles[theOpponents[i]].classList.contains('opponents'))){
+       clearInterval(game);
+    }
+  }
+}
