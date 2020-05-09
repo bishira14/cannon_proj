@@ -1,0 +1,36 @@
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{
+  height:100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container{
+  height:35em;
+  width:35em;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  border:solid 1px black;
+  flex-wrap: wrap;
+}
+.container div{
+ height:30px;
+ width:36px;
+ border:solid 1px black;
+}
+.shooter{
+   background-color:blue;
+}
+.opponents{
+  background-color: green;
+}
+.shot{
+  background-color:red;
+  border-radius: 100px;
+}
