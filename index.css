@@ -45,9 +45,8 @@ body{
  width:36px;
  border:solid 1px black;
 }
- div.shooter{
-   border-radius: 7px;
-   background:green;
+ div .shooter{
+   background:url('img/shooter.png');
 }
  div .opponents{
   height:20px;

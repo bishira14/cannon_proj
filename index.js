@@ -1,7 +1,8 @@
 const tiles = document.querySelectorAll('.container div');
 let shooterPosition =  202;
 let score = 0;
-let scoreElement = document.querySelector('h2 span')
+let scoreElement = document.querySelector('h2 span');
+let replay = document.querySelector('.replay');
 let game = setInterval(gameMove,500);
 let theOpponents = [0,1,2,3,4,5,6,7,8,9,
                    15,16,17,18,19,20,21,22,23,24,
@@ -107,6 +108,13 @@ function opponentsReached(){
   for(let i = 0; i < theOpponents.length; i++){
     if((tiles[theOpponents[i]].classList.contains('shooter')) && (tiles[theOpponents[i]].classList.contains('opponents'))){
        clearInterval(game);
+    }else{
+      if((theOpponents[i] > 255) && (tiles[theOpponents[i]].classList.contains('opponents'))){
+        clearInterval(game);
+      }
     }
   }
 }
+replay.addEventListener('click', function(){
+   return location.reload();
+});
