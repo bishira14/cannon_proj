@@ -14,6 +14,7 @@ let way = 1;
 let shotter = shooterPosition;
 let duration = 900;
 let durationOpposition = 900;
+
 let shotMove = function (num){
   for(let i = 0; i < 14; i++){
     duration -= 50;
@@ -37,7 +38,6 @@ let shotMove = function (num){
     },duration);
   }
   caught[0] = 'none';
-  console.log(allCaught);
 
 
 }
@@ -129,7 +129,10 @@ function oppositionAttack(){
       tiles[theOpponentsIndexValue].classList.remove('oppositionShot');
       theOpponentsIndexValue +=15;
       tiles[theOpponentsIndexValue].classList.add('oppositionShot');
-      console.log(theOpponentsIndexValue);
+      if(tiles[theOpponentsIndexValue].classList.contains('shooter')){
+       score--;
+       scoreElement.textContent = score;
+      }
   },durationOpposition);
   }
   durationOpposition = 900;
