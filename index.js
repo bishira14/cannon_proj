@@ -142,8 +142,12 @@ function oppositionAttack(){
   for(let i = 0; i < 15; i++){
   durationOpposition -=50;
   setTimeout(function(){
+      //to remove errors
+      if(theOpponentsIndexValue > 209) return;
       tiles[theOpponentsIndexValue].classList.remove('oppositionShot');
       theOpponentsIndexValue +=15;
+      //to remove errors
+      if(theOpponentsIndexValue > 209) return;
       tiles[theOpponentsIndexValue].classList.add('oppositionShot');
       if(tiles[theOpponentsIndexValue].classList.contains('shooter')){
        score--;
