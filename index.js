@@ -7,6 +7,7 @@ let game = setInterval(gameMove,500);
 let theOpponents = [0,1,2,3,4,5,6,7,8,9,
                    15,16,17,18,19,20,21,22,23,24,
                    30,31,32,33,34,35,36,37,38,39];
+let finished = [];
 let allCaught = [];
 let caught = ['none'];
 let movement = [5];
@@ -121,7 +122,22 @@ function opponentsReached(){
 }
 
 function oppositionAttack(){
+  if (finished.length == 30) return;
+  for(let i = 0; i < theOpponents.length; i++){
+    if((tiles[theOpponents[i]].classList.contains('opponents')) == false){
+      finished.push('finished');
+    }
+  }
+  if(finished.length == 30){
+    return;
+  }else{
+      finished = [];
+  }
+
   let random = Math.floor(Math.random() * theOpponents.length);
+   do{
+     random = Math.floor(Math.random() * theOpponents.length);
+   }while((tiles[theOpponents[random]].classList.contains('opponents')) == false);
   let theOpponentsIndexValue = theOpponents[random];
   for(let i = 0; i < 15; i++){
   durationOpposition -=50;
